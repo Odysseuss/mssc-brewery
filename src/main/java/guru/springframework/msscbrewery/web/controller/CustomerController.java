@@ -37,11 +37,9 @@ public class CustomerController {
     }
 
     @PutMapping("/{customerId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity updateCustomer(@PathVariable("customerId") UUID customerId, @RequestBody CustomerDto customerDto) {
-
         customerService.updateCustomer(customerId, customerDto);
-
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping("/{customerId}")
